@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  - push
+  - pull_request
+  - workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      max-parallel: 6
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+        python-version:
+          - "3.8"
+          - "3.9"
+          - "3.10"
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install poetry
+        run: |
+          pipx install poetry
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        id: python-setup
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: poetry
+          cache-dependency-path: pyproject.toml
+
+      - name: Install dependencies
+        if: steps.python-setup.outputs.cache-hit != 'true'
+        run: |
+          poetry install
+
+      - name: Start tests
+        run: |
+          poetry run pytest tests
+
+      - name: Start mypy
+        run: |
+          poetry run mypy src
+
+      - name: Start flake
+        run: |
+          poetry run flake8 src

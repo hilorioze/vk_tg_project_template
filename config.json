@@ -1,0 +1,51 @@
+{
+    "database":
+    {
+        "sql":
+        {
+            "host": "127.0.0.1",
+            "port": 5432,
+            "username": "your_username",
+            "password": "your_password",
+            "database": "vk_tg_project_template",
+            "ssl_ca": null,
+            "ssl_cert": null,
+            "ssl_key": null,
+            "debug": true,
+            "isolation_level": "READ COMMITTED",
+            "dialect": "postgresql",
+            "driver": "asyncpg",
+            "url": null,
+            "args": {},
+            "tables": {}
+        },
+        "redis":
+        {
+            "host": "127.0.0.1",
+            "port": 6379,
+            "password": null,
+            "database": 0,
+            "ssl_ca_certs": null,
+            "debug": false,
+            "url": null,
+            "args": {}
+        }
+    },
+    "loop":
+    {
+        "aiomonitor": {
+            "enabled": false,
+            "host": "127.0.0.1",
+            "port": 50101,
+            "console_port": 50102,
+            "console_enabled": true
+        },
+        "debug": false,
+        "uvloop": true
+    },
+    "logging":
+    {
+        "level": "DEBUG",
+        "format": "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <5}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>"
+    }
+}
