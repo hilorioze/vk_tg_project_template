@@ -1,4 +1,10 @@
 {
+    "bot":
+    {
+        "token": "your_token_or_list_of_tokens",
+        "group_id": 1,
+        "proxy": null
+    },
     "database":
     {
         "sql":
@@ -7,7 +13,7 @@
             "port": 5432,
             "username": "your_username",
             "password": "your_password",
-            "database": "vk_tg_project_template",
+            "database": "vk_project_template",
             "ssl_ca": null,
             "ssl_cert": null,
             "ssl_key": null,
@@ -17,7 +23,10 @@
             "driver": "asyncpg",
             "url": null,
             "args": {},
-            "tables": {}
+            "tables": {
+                "users": "users",
+                "states": "states"
+            }
         },
         "redis":
         {

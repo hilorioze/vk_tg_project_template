@@ -33,7 +33,8 @@ class Redis(pydantic.BaseModel):
 
 
 class Tables(pydantic.BaseModel):
-    pass
+    users: str
+    states: str
 
 
 class Sql(pydantic.BaseModel):
@@ -105,7 +106,14 @@ class Logging(pydantic.BaseModel):
         return level
 
 
+class Bot(pydantic.BaseModel):
+    token: typing.Union[str, typing.List[str]]
+    group_id: typing.Optional[int]
+    proxy: typing.Optional[str]
+
+
 class ConfigModel(pydantic.BaseModel):
+    bot: Bot
     database: Database
     loop: Loop
     logging: Logging

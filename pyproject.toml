@@ -7,6 +7,14 @@ authors = ["hilorioze <hilorioze@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 
+# Bot Framework
+vkbottle = "^4.3.4"
+
+# Http
+aiohttp = "^3.8.1"
+aiohttp-socks = "^0.7.1"
+certifi = "^2022.5.18"
+
 # Logging
 loguru = "^0.6.0"
 
