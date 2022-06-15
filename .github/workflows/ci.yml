@@ -5,10 +5,12 @@ on:
     branches:
       - template
       - vk
+      - tg
   pull_request:
     branches:
       - template
       - vk
+      - tg
   workflow_dispatch: {}
 
 jobs:
