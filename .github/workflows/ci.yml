@@ -1,9 +1,15 @@
 name: CI
 
 on:
-  - push
-  - pull_request
-  - workflow_dispatch
+  push:
+    branches:
+      - template
+      - vk
+  pull_request:
+    branches:
+      - template
+      - vk
+  workflow_dispatch: {}
 
 jobs:
   build:
